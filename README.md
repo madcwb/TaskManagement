@@ -1,3 +1,46 @@
+# Passo a Passo para Executar o Projeto no Docker
+
+Este projeto foi configurado para ser executado no Docker utilizando o `docker-compose`. A seguir, estão as instruções para configurar e executar o ambiente de desenvolvimento, além de acessar a aplicação ao final do processo.
+
+#### 1. **Instale o Docker e Docker Compose**
+   Antes de começar, certifique-se de ter o Docker e o Docker Compose instalados no seu sistema. Você pode baixar o Docker [aqui](https://www.docker.com/products/docker-desktop) para seu sistema operacional.
+
+#### 2. **Clone o Repositório do Projeto**
+   Faça o clone do repositório do projeto em seu ambiente local. Se ainda não tiver o código, você pode fazer isso com o seguinte comando:
+
+   ```bash
+   git clone https://github.com/madcwb/TaskManagement.git
+   ```
+
+   Em seguida, navegue até o diretório do projeto.
+
+
+#### 3. **Estrutura do `docker-compose.yml`**
+   O arquivo `docker-compose.yml` foi configurado para subir tanto o **SQL Server** quanto a aplicação **ASP.NET Core**. Ele utiliza os seguintes serviços:
+
+   - **SQL Server**: Banco de dados onde as informações do projeto serão armazenadas.
+   - **Aplicação ASP.NET Core**: A API do projeto.
+
+
+#### 4. **Comando para Iniciar o Docker Compose**
+   Uma vez que o projeto esteja baixado e o Docker instalado, execute o comando abaixo para construir e iniciar os containers:
+
+   ```bash
+   docker-compose up --build
+   ```
+
+   Isso iniciará dois containers: um para o SQL Server e outro para a aplicação ASP.NET Core.
+
+#### 5. **Acessando a Aplicação**
+   Uma vez que os containers estiverem rodando, a aplicação estará disponível na URL abaixo:
+
+   ```
+   http://localhost:8080/swagger
+   ```
+
+   Você pode abrir esta URL em seu navegador para acessar a documentação da API gerada pelo Swagger. A partir dessa interface, você pode testar todos os endpoints da API.
+
+
 # Fase 2: Refinamento
 Sugestões de perguntas para o PO:
 
