@@ -13,8 +13,8 @@ namespace TaskManagement.Api.Models
         public string Status { get; set; }
         public string Priority { get; set; }
         public int ProjectId { get; set; }
-        public Project Project { get; set; }
-        public ICollection<TaskHistory> History { get; set; }
+
+        public ICollection<TaskHistory>? History { get; set; }
 
         public void Update(TaskModel updatedTask)
         {

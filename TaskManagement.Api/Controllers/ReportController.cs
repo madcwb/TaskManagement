@@ -16,7 +16,7 @@ namespace TaskManagement.Api.Controllers
         }
 
         [HttpGet("performance")]
-        [Authorize(Roles = "Gerente")]
+       // [Authorize(Roles = "Gerente")]
         public async Task<IActionResult> GetPerformanceReport()
         {
             var report = await _reportService.GetPerformanceReport();

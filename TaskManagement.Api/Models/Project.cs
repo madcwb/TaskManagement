@@ -8,7 +8,7 @@ namespace TaskManagement.Api.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public int UserId { get; set; }
-        public User User { get; set; }
+        
         public ICollection<TaskModel>? Tasks { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace TaskManagement.Api.Models
         public string Update { get; set; }
         public DateTime ModificationDate { get; set; }
         public string User { get; set; }
-        public int TaskId { get; set; }
-        public TaskModel Task { get; set; }
+        public int TaskId { get; set; }       
+        public TaskModel? Task { get; set; }
     }
 }

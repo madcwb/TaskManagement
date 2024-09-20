@@ -130,6 +130,12 @@ namespace TaskManagement.Api.Migrations
                 name: "IX_Tasks_ProjectId",
                 table: "Tasks",
                 column: "ProjectId");
+
+            migrationBuilder.InsertData(
+             table: "Users",
+             columns: new[] { "Id", "Name", "Email", "Role" },
+             values: new object[] { 1, "nome", "email@email.com", "Gerente" });
+
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
