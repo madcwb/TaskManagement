@@ -52,7 +52,7 @@ public class TaskServiceTests
             DueDate = DateTime.Now.AddDays(7),
             Priority = "Alta",
             Status = "Pendente",
-            Project = project
+            ProjectId = project.Id
         };
 
         await Assert.ThrowsAsync<InvalidOperationException>(() => _taskService.CreateTask(task, 5));
@@ -76,8 +76,7 @@ public class TaskServiceTests
             DueDate = DateTime.Now.AddDays(5),
             Status = "Concluída",
             Priority = "Média",
-            ProjectId = 1,
-            Project = project
+            ProjectId = project.Id
         };
 
         var history = new TaskHistory
@@ -117,8 +116,7 @@ public class TaskServiceTests
             Status = "Pendente",
             DueDate = DateTime.Now.AddDays(5),
             Priority = "Alta",
-            ProjectId = 1,
-            Project = project
+            ProjectId = project.Id
         };
 
         await _dbContext.Projects.AddAsync(project);
@@ -151,7 +149,7 @@ public class TaskServiceTests
             Description = "Descrição",
             Status = "Pendente",
             Priority = "Média",
-            Project = project
+            ProjectId = project.Id
         };
 
         await _dbContext.Tasks.AddAsync(task);
@@ -165,7 +163,7 @@ public class TaskServiceTests
             Description = "Descrição atualizada",
             Status = "Concluída",
             Priority = "Média",
-            Project = project
+            ProjectId = project.Id
         };
 
         await _taskService.UpdateTask(updatedTask);
@@ -186,7 +184,7 @@ public class TaskServiceTests
             Description = "Descrição",
             Status = "Pendente",
             Priority = "Média",
-            Project = project
+            ProjectId = project.Id
         };
 
         await _dbContext.Tasks.AddAsync(task);
@@ -200,7 +198,7 @@ public class TaskServiceTests
             Description = "Descrição",
             Status = "Pendente",
             Priority = "Alta",
-            Project = project
+            ProjectId = project.Id
         };
 
         await Assert.ThrowsAsync<InvalidOperationException>(() => _taskService.UpdateTask(updatedTask));

@@ -61,8 +61,7 @@ public class ProjectServiceTests
             Description = "Descrição",
             DueDate = DateTime.Now.AddDays(5),
             Priority = "Média",
-            ProjectId = 1,
-            Project = project
+            ProjectId = 1
         };
 
         project.Tasks.Add(task); // Associa a tarefa ao projeto
@@ -96,8 +95,7 @@ public class ProjectServiceTests
             Description = "Descrição",
             DueDate = DateTime.Now.AddDays(-5),
             Priority = "Alta",
-            ProjectId = 1,
-            Project = project
+            ProjectId = project.Id
         };
 
         project.Tasks.Add(task); // Associa a tarefa ao projeto

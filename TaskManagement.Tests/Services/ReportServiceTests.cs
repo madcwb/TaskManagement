@@ -26,6 +26,22 @@ public class ReportServiceTests
     [Fact]
     public async Task GetPerformanceReport_ShouldReturnAverageTasksCompleted()
     {
+        var project1 = new Project
+        {
+            Id = 1,
+            Name = "Projeto 1",
+            UserId = 1,
+            Tasks = new List<TaskModel>()
+        };
+
+        var project2 = new Project
+        {
+            Id = 2,
+            Name = "Projeto 1",
+            UserId = 1,
+            Tasks = new List<TaskModel>()
+        };
+
         var tasks = new List<TaskModel>
         {
             new TaskModel
@@ -36,13 +52,7 @@ public class ReportServiceTests
                 Status = "Concluída",
                 DueDate = DateTime.Now.AddDays(-5),
                 Priority = "Alta",
-                Project = new Project
-                {
-                    Id = 2,
-                    Name = "Projeto 1",
-                    UserId = 1,
-                    Tasks = new List<TaskModel>()
-                }
+                ProjectId = 1,
             },
             new TaskModel
             {
@@ -52,16 +62,12 @@ public class ReportServiceTests
                 Status = "Concluída",
                 DueDate = DateTime.Now.AddDays(-10),
                 Priority = "Média",
-                Project = new Project
-                {
-                    Id = 1,
-                    Name = "Projeto 1",
-                    UserId = 2,
-                    Tasks = new List<TaskModel>()
-                }
+                ProjectId = 2
             }
         };
 
+        await _dbContext.Projects.AddAsync(project1);
+        await _dbContext.Projects.AddAsync(project2);
         await _dbContext.Tasks.AddRangeAsync(tasks);
         await _dbContext.SaveChangesAsync();
 
