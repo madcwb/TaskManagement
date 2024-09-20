@@ -1,0 +1,17 @@
+services:
+  sqldata:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+        - MSSQL_SA_PASSWORD=Opa#2024
+        - ACCEPT_EULA=Y
+    ports:
+        - "1433:1433"
+  taskmanagement.api:
+    image: ${DOCKER_REGISTRY-}taskmanagementapi
+    build:
+      context: .
+      dockerfile: TaskManagement.Api/Dockerfile
+    depends_on:
+        - sqldata
+    ports:
+        - "8080:8080"
